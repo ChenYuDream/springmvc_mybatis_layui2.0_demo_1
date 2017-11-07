@@ -1,0 +1,12 @@
+#基于layui的后台管理系统框架Demo可直接下载使用
+##结合技术点
+```
+    SpringMvc
+    Mybatis
+    layui2.*
+    maven集成
+    mysql
+```
+##界面展示（菜单可静态也可通过ajax从数据库加载）
+![登录界面](http://www.taylormadeshoes.com.cn:99/upload/myImg/login.png)
+![登录界面](http://www.taylormadeshoes.com.cn:99/upload/myImg/main.png)
