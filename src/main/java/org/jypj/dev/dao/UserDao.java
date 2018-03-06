@@ -3,6 +3,7 @@ package org.jypj.dev.dao;
 /**
  * @author ChenYu
  */
-public interface SettingDao {
+public interface UserDao {
+
 
 }

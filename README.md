@@ -11,5 +11,3 @@
 ```
 界面展示（菜单可静态也可通过ajax从数据库加载）
 --
-![登录界面](http://www.taylormadeshoes.com.cn:99/upload/myImg/login.png)
-![登录界面](http://www.taylormadeshoes.com.cn:99/upload/myImg/main.png)

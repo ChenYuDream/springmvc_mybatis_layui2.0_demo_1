@@ -73,19 +73,6 @@
         </property>
     </bean>
 
-    <!-- 权限设置 -->
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/page/**"/>
-            <bean class="org.jypj.dev.intercept.PageHandlerInterceptor"/>
-        </mvc:interceptor>
-        <mvc:interceptor>
-            <mvc:mapping path="/back/**"/>
-            <mvc:exclude-mapping path="/back/login"/>
-            <mvc:exclude-mapping path="/back/check"/>
-            <bean class="org.jypj.dev.intercept.LoginHandlerInterceptor"/>
-        </mvc:interceptor>
-    </mvc:interceptors>
 
 
 </beans>

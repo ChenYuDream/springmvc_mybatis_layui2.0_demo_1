@@ -18,9 +18,7 @@
     <div class="layui-header">
         <div class="layui-main">
             <!-- logo -->
-            <a href="#">
-                <img src="${ctx}/static/web/images/logo.png">
-            </a>
+            <span style="font-size: 20px;color: #fff;margin: auto 0">LOGO</span>
             <!-- 水平导航 -->
             <ul class="layui-nav" style="position: absolute; top: 0; right: 0; background: none;">
                 <li class="layui-nav-item">
@@ -76,13 +74,7 @@
 
     //可使用ajax从数据库中获取
     var menuData = [
-        {id: '1', name: '首页', pid: '0', url: 'http://www.baidu.com'},
-        {id: '2', name: '百度', pid: '0', url: 'http://www.baidu.com'},
-        {id: '3', name: '新浪', pid: '0', url: 'http://www.sina.com.cn/'},
-        {id: '4', name: 'hao123', pid: '0', url: 'https://www.hao123.com/'},
-        {id: '5', name: '二级菜单', pid: '0', url: 'http://www.baidu.com'},
-        {id: '6', name: '新浪', pid: '5', url: 'http://www.sina.com.cn/'},
-        {id: '7', name: 'layui首页', pid: '5', url: 'http://www.layui.com'}
+        {id: '1', name: '首页', pid: '0', url: '${ctx}/page/index'},
     ]
 
     layui.use(['cms'], function () {
@@ -92,20 +84,8 @@
         cms.clickLI(0);
     });
 
-    /**
-     * 初始化整个cms骨架
-     */
 
 
-    //注销登录
-    function logout() {
-        //询问框
-        layui.layer.confirm('你确定退出吗？', {
-            btn: ['确定', '取消'] //按钮
-        }, function () {
-            window.location.href = '${ctx}/back/logout';
-        });
-    }
 </script>
 </body>
 </html>
