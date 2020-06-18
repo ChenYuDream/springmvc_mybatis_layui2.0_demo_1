@@ -10,7 +10,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.1.6.RELEASE</spring.version>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
@@ -90,17 +89,10 @@
             <artifactId>commons-codec</artifactId>
             <version>1.10</version>
         </dependency>
-        <!-- mybatis是ibatis 的升级版。是一种 orm 工具，简化数据库操作 -->
         <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.2.8</version>
-        </dependency>
-        <!-- 是一个用来整合 MyBatis 和 Spring 框架的小类库 -->
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>1.2.2</version>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+            <version>3.3.2</version>
         </dependency>
         <!-- javassist -->
         <dependency>

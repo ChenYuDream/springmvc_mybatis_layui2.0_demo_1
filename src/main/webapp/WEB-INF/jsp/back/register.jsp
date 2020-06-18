@@ -10,7 +10,7 @@
 <head>
     <%@include file="../public/back/commonCss.jsp" %>
     <%@include file="../public/back/commonJs.jsp" %>
-    <title>后台管理demo</title>
+    <title>注册页面</title>
 </head>
 <body>
 <div class="layui-canvs"></div>
@@ -29,16 +29,18 @@
                        class="layui-input">
             </div>
         </div>
-        <div class="layui-input-inline login-btn">
-            <button type="submit" lay-submit="" lay-filter="login" class="layui-btn">登录</button>
-
+        <div class="layui-form-item">
+            <div class="layui-input-inline">
+                <input name="confirmPassword" lay-verify="required" placeholder="确认密码" type="password"
+                       autocomplete="off"
+                       class="layui-input">
+            </div>
         </div>
         <div class="layui-input-inline login-btn">
-            <button type="button"  lay-filter="register" onclick=" window.location.href = '${ctx}/back/register';"
-                    class="layui-btn layui-btn-warm">注册
+            <button type="submit" lay-submit="" lay-filter="register" class="layui-btn">注册</button>
+            <button type="button" onclick="window.location.href = '${ctx}/back/main';" class="layui-btn">去登录
             </button>
         </div>
-
     </form>
 </div>
 <script type="text/javascript">
@@ -55,11 +57,12 @@
         });
     });
     //监听提交
-    form.on('submit(login)', function (data) {
-        ajaxUtil.postDealCode('${ctx}/back/check', data.field, true, function (data) {
-            if (data.code == 0) {
+    form.on('submit(register)', function (data) {
+        console.log(data);
+        ajaxUtil.postDealCode('${ctx}/back/register', data.field, true, function (data) {
+            if (data.code === 0) {
                 window.location.href = "${ctx}/back/main";
-            } else if (data.code == -2) {
+            } else if (data.code === -2) {
                 layui.layer.alert('用户名或密码不正确', {closeBtn: 0});
             }
         })

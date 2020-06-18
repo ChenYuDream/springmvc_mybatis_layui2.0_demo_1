@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 前台基础配置信息拦截器
  *
- * @author ChenYu
  */
 public class PageHandlerInterceptor extends HandlerInterceptorAdapter {
 

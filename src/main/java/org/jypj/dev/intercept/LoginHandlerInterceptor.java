@@ -7,11 +7,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author yu_chen
- * @create 2017-10-19 10:32
- * 后台拦截器 拦截登录信息
- **/
 public class LoginHandlerInterceptor extends HandlerInterceptorAdapter {
 
     private static final String BACK_LOGIN_URL = "/back/login";

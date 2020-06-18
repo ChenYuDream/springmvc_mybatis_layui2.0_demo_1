@@ -8,7 +8,6 @@ import java.util.Date;
 /**
  * logo 官网地址等设置
  *
- * @author chenyu
  */
 public class Setting implements java.io.Serializable {
 

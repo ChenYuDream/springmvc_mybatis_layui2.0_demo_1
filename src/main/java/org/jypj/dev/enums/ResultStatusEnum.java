@@ -2,10 +2,6 @@ package org.jypj.dev.enums;
 
 import java.util.Objects;
 
-/**
- * @author ChenYu
- * @create
- */
 public enum ResultStatusEnum {
     /**
      * 成功
