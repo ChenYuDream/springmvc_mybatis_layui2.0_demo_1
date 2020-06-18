@@ -1,7 +1,7 @@
 package org.jypj.dev.constant;
 
 /**
- * @author
+ * @author yu_chen
  * @create 2017-09-29 17:48
  **/
 public interface BaseConstant {
