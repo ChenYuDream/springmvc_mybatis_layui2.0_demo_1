@@ -5,9 +5,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jypj.dev.constant.BaseConstant;
+import org.jypj.dev.model.Student;
 import org.jypj.dev.model.User;
 import org.jypj.dev.result.Result;
 import org.jypj.dev.result.ResultUtil;
+import org.jypj.dev.service.StudentService;
 import org.jypj.dev.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,9 @@ public class LoginController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    StudentService studentService;
 
     /**
      * 跳转到登录页
@@ -71,14 +76,12 @@ public class LoginController {
     @ResponseBody
     @RequestMapping(value = "check")
     public Result login(String userName, String password, HttpSession session) {
-        Result result = new Result();
-        User user = new User();
-        if (StringUtils.isAnyEmpty(userName, password) || !(USER_NAME.equals(userName)) || !(PASSWORD.equals(password))) {
-            return new Result(-2);
+        User one = userService.getOne(new QueryWrapper<User>().eq("username", userName));
+        if (Objects.isNull(one) || !StringUtils.equals(one.getPassword(), password)) {
+            return ResultUtil.fail("用户名或者密码不正确");
         }
-        user.setUsername(userName);
-        session.setAttribute(BaseConstant.BACK_SESSION_USER, user);
-        return result;
+        session.setAttribute(BaseConstant.BACK_SESSION_USER, one);
+        return ResultUtil.success();
     }
 
     /**
@@ -92,9 +95,10 @@ public class LoginController {
     public Result register(String userName, String password, String confirmPassword) {
         User user = userService.getOne(new QueryWrapper<User>().eq("username", userName));
         if (Objects.isNull(user)) {
-            user = new User(userName, password);
+//            只能注册学生
+            user = new User(userName, password, BaseConstant.ROLE_TYPE_STUDENT);
         } else {
-            ResultUtil.fail("用户已经存在");
+            ResultUtil.fail("该用户已经存在");
         }
         return ResultUtil.successOrFail(userService.save(user));
     }

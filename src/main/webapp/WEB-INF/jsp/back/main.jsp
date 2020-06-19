@@ -26,7 +26,7 @@
                 </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">
-                        admin
+                        ${user.username}
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;">个人信息</a></dd>
@@ -43,7 +43,7 @@
         <div class="user-photo">
             <a class="img" title="我的头像">
                 <img src="${ctx}/static/back/images/pic.jpg" class="userimg1"></a>
-            <p>你好！admin, 欢迎登录</p>
+            <p>你好！${user.username}, 欢迎登录</p>
         </div>
         <div class="layui-side-scroll">
             <ul class="layui-nav layui-nav-tree" lay-filter="left-nav" style="border-radius: 0;">
@@ -74,7 +74,7 @@
 
     //可使用ajax从数据库中获取
     var menuData = [
-        {id: '1', name: '学生管理', pid: '0', url: '${ctx}/page/index'},
+        {id: '1', name: '学生管理', pid: '0', url: '${ctx}/page/student/list'},
     ]
 
     layui.use(['cms'], function () {
@@ -90,7 +90,7 @@
             btn: ['确定', '取消'] //按钮
         }, function () {
             parent.layui.layer.close(index);
-            window.location.href="${ctx}/back/logout"
+            window.location.href = "${ctx}/back/logout"
         });
     }
 

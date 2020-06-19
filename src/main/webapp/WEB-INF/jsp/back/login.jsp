@@ -11,6 +11,11 @@
     <%@include file="../public/commonCss.jsp" %>
     <%@include file="../public/commonJs.jsp" %>
     <title>后台管理demo</title>
+    <style>
+        body{
+            background-image: url("${ctx}/static/back/images/login_bg.jpg");
+        }
+    </style>
 </head>
 <body>
 <div class="layui-canvs"></div>
@@ -34,7 +39,7 @@
 
         </div>
         <div class="layui-input-inline login-btn">
-            <button type="button"  lay-filter="register" onclick=" window.location.href = '${ctx}/back/register';"
+            <button type="button" lay-filter="register" onclick=" window.location.href = '${ctx}/back/register';"
                     class="layui-btn layui-btn-warm">注册
             </button>
         </div>
@@ -46,10 +51,11 @@
     //监听提交
     form.on('submit(login)', function (data) {
         ajaxUtil.postDealCode('${ctx}/back/check', data.field, true, function (data) {
-            if (data.code == 0) {
+            console.log(data);
+            if (data.code === 0) {
                 window.location.href = "${ctx}/back/main";
-            } else if (data.code == -2) {
-                layui.layer.alert('用户名或密码不正确', {closeBtn: 0});
+            } else {
+                layui.layer.alert(data.msg, {closeBtn: 0});
             }
         })
         return false;

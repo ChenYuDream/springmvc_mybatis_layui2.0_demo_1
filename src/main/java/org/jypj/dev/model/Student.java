@@ -1,5 +1,6 @@
 package org.jypj.dev.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -15,7 +16,7 @@ public class Student implements java.io.Serializable {
     /**
      * 主键ID
      */
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
     /**
      * 学号
@@ -47,15 +48,5 @@ public class Student implements java.io.Serializable {
      */
     @TableField("clazz")
     private String clazz;
-    /**
-     * 用户名
-     */
-    @TableField("username")
-    private String username;
-    /**
-     * 密码
-     */
-    @TableField("password")
-    private String password;
 
 }

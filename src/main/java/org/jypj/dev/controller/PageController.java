@@ -8,6 +8,7 @@ public class PageController {
 
     /**
      * 跳转到后台框架首页
+     *
      * @return
      */
     @RequestMapping("/")
@@ -17,10 +18,11 @@ public class PageController {
 
     /**
      * 跳转到第一个菜单
+     *
      * @return
      */
-    @RequestMapping("page/index")
+    @RequestMapping("page/student/list")
     public String toPageIndex() {
-        return "back/index";
+        return "back/student_list";
     }
 }
