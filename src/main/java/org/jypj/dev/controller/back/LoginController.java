@@ -18,10 +18,6 @@ import javax.servlet.http.HttpSession;
 import java.sql.Wrapper;
 import java.util.Objects;
 
-/**
- * @author ChenYu
- * @date 2017-06-05
- */
 @Controller
 @RequestMapping("back")
 public class LoginController {

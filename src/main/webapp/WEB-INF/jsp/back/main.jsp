@@ -74,7 +74,7 @@
 
     //可使用ajax从数据库中获取
     var menuData = [
-        {id: '1', name: '首页', pid: '0', url: '${ctx}/page/index'},
+        {id: '1', name: '学生管理', pid: '0', url: '${ctx}/page/index'},
     ]
 
     layui.use(['cms'], function () {
@@ -84,6 +84,15 @@
         cms.clickLI(0);
     });
 
+    function logout() {
+        var index;
+        index = parent.layui.layer.confirm("你确定退出登录吗？", {
+            btn: ['确定', '取消'] //按钮
+        }, function () {
+            parent.layui.layer.close(index);
+            window.location.href="${ctx}/back/logout"
+        });
+    }
 
 
 </script>

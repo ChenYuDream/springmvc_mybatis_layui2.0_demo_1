@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="../public/back/commonCss.jsp" %>
-    <%@include file="../public/back/commonJs.jsp" %>
+    <%@include file="../public/commonCss.jsp" %>
+    <%@include file="../public/commonJs.jsp" %>
     <title>后台管理demo</title>
 </head>
 <body>
@@ -42,18 +42,7 @@
     </form>
 </div>
 <script type="text/javascript">
-    layui.use(['jquery'], function () {
-        window.jQuery = window.$ = layui.jquery;
-        var $layui_canvs = $(".layui-canvs");
-        $layui_canvs.width($(window).width());
-        $layui_canvs.height($(window).height());
-    });
-    $(function () {
-        $(".layui-canvs").jParticle({
-            background: "url('${ctx}/static/back/images/login_bg.jpg')",
-            color: "#E6E6E6"
-        });
-    });
+
     //监听提交
     form.on('submit(login)', function (data) {
         ajaxUtil.postDealCode('${ctx}/back/check', data.field, true, function (data) {

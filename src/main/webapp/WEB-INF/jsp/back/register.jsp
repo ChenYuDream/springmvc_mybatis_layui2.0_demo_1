@@ -8,8 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="../public/back/commonCss.jsp" %>
-    <%@include file="../public/back/commonJs.jsp" %>
+    <%@include file="../public/commonCss.jsp" %>
+    <%@include file="../public/commonJs.jsp" %>
     <title>注册页面</title>
 </head>
 <body>
