@@ -8,11 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <%@include file="../public/commonCss.jsp" %>
-    <%@include file="../public/commonJs.jsp" %>
+    <%@include file="../../public/commonCss.jsp" %>
+    <%@include file="../../public/commonJs.jsp" %>
     <title>Title</title>
 </head>
-<body class="pd" ms-controller="main" class="ms-controller">
+<body ms-controller="main" class="ms-controller">
 <button class="layui-btn layui-btn-small">新增学生</button>
 <table class="layui-table">
     <colgroup>
@@ -37,7 +37,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ms-repeat="tabledata">
+    <tr ms-repeat="tableData">
         <td>{{el.stunum}}</td>
         <td>{{el.name}}</td>
         <td>{{el.sex}}</td>
@@ -45,34 +45,39 @@
         <td>{{el.phone}}</td>
         <td>{{el.clazz}}</td>
         <td>
-            <button class="layui-btn layui-btn-mini">修改</button>
+            <button class="layui-btn layui-btn-mini" ms-click="showStudentLayer(el)">修改</button>
             <button class="layui-btn layui-btn-mini layui-btn-danger">删除</button>
         </td>
     </tr>
     </tbody>
 </table>
 
-<script type="javascript">
-    var vm;
-    avalon.ready(function () {
-        vm = avalon.define({
-            $id: "main",
-            tableData: [],
-            loadTableData: function () {
-                ajaxUtil.post("${ctx}/student/list", "", false, function (data) {
-                    console.log(data.data);
-                    vm.tableData = data.data
-                })
-            }
+<script type="text/javascript">
+    var vm = {
+        tableData: [],
+        loadTableData: function () {
+            ajaxUtil.post("${ctx}/student/list", "", false, function (data) {
+                console.log(data.data);
+                vm.tableData = data.data
+            })
+        }
+    }
+    vm = avalonFn.define("main", vm);
+    vm.loadTableData();
+
+
+    //弹出添加菜单对话框
+    function showStudentLayer(el) {
+        var dataStr = el == 1 ? "" : ("?id=" + el.id);
+        layer.open({
+            type: 2,
+            title: '操作',
+            area: ['520px', '70%'],
+            fix: false, //不固定
+            maxmin: false,
+            content: '${ctx}/student/form/' + dataStr
         });
-        avalon.scan();
-    });
-
-    $(function () {
-        alert("asdasd")
-        vm.loadTableData();
-    })
-
+    }
 </script>
 </body>
 </html>
